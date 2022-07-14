@@ -45,13 +45,6 @@ const createBook = async function (req, res) {
         //subcategory
         if (!validator.valid(subcategory) || subcategory.length == 0) return res.status(400).send({ status: false, message: "Subcategory required in request body...!" })
 
-        if (validator.valid(subcategory)) {
-            let temp = subcategory;
-            if (typeof (subcategory) == 'object')
-                subcategory = temp;
-        } else {
-            subcategory = temp.split(',').map(string)
-        }
 
         //reviews
         if (validator.valid(reviews))
